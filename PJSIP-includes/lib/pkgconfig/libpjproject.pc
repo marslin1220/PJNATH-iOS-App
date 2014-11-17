@@ -1,0 +1,13 @@
+# Package Information for pkg-config
+
+prefix=/Users/marslin/workspace/ecowork/zyxel/ICEDemo/PJSIP-includes
+exec_prefix=${prefix}
+libdir=/Users/marslin/workspace/ecowork/zyxel/ICEDemo/PJSIP-includes/lib
+includedir=/Users/marslin/workspace/ecowork/zyxel/ICEDemo/PJSIP-includes/include
+
+Name: libpjproject
+Description: Multimedia communication library
+URL: http://www.pjsip.org
+Version: 2.3-svn
+Libs: -L${libdir} -lpjsua2-arm-apple-darwin9 -lstdc++ -lpjsua-arm-apple-darwin9 -lpjsip-ua-arm-apple-darwin9 -lpjsip-simple-arm-apple-darwin9 -lpjsip-arm-apple-darwin9 -lpjmedia-codec-arm-apple-darwin9 -lpjmedia-arm-apple-darwin9 -lpjmedia-videodev-arm-apple-darwin9 -lpjmedia-audiodev-arm-apple-darwin9 -lpjmedia-arm-apple-darwin9 -lpjnath-arm-apple-darwin9 -lpjlib-util-arm-apple-darwin9  -lsrtp-arm-apple-darwin9 -lresample-arm-apple-darwin9 -lgsmcodec-arm-apple-darwin9 -lspeex-arm-apple-darwin9 -lilbccodec-arm-apple-darwin9 -lg7221codec-arm-apple-darwin9  -lpj-arm-apple-darwin9 -lm -lpthread  -framework CoreAudio -framework CoreFoundation -framework AudioToolbox -framework CFNetwork -framework UIKit -framework UIKit -framework OpenGLES -framework AVFoundation -framework CoreGraphics -framework QuartzCore -framework CoreVideo -framework CoreMedia
+Cflags: -I${includedir} -I/Users/marslin/workspace/ecowork/zyxel/ICEDemo/PJSIP-includes/include -DPJ_AUTOCONF=1	-O2 -Wno-unused-label -DPJ_SDK_NAME="iPhoneOS8.1.sdk" -arch armv7 -isysroot /Applications/XCode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk -DPJ_IS_BIG_ENDIAN=0 -DPJ_IS_LITTLE_ENDIAN=1
