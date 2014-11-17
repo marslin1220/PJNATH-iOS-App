@@ -39,6 +39,7 @@
 		A227193D1A19C5E1005B7C10 /* libspeex-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22719241A19C5E0005B7C10 /* libspeex-arm-apple-darwin9.a */; };
 		A227193E1A19C5E1005B7C10 /* libsrtp-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22719251A19C5E0005B7C10 /* libsrtp-arm-apple-darwin9.a */; };
 		A227193F1A19C5E1005B7C10 /* libpjproject.pc in Resources */ = {isa = PBXBuildFile; fileRef = A22719271A19C5E0005B7C10 /* libpjproject.pc */; };
+		A22719431A19CCF5005B7C10 /* MLPjnath.c in Sources */ = {isa = PBXBuildFile; fileRef = A22719411A19CCF5005B7C10 /* MLPjnath.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,6 +385,8 @@
 		A22719241A19C5E0005B7C10 /* libspeex-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libspeex-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		A22719251A19C5E0005B7C10 /* libsrtp-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libsrtp-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		A22719271A19C5E0005B7C10 /* libpjproject.pc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libpjproject.pc; sourceTree = "<group>"; };
+		A22719411A19CCF5005B7C10 /* MLPjnath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MLPjnath.c; sourceTree = "<group>"; };
+		A22719421A19CCF5005B7C10 /* MLPjnath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPjnath.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +447,8 @@
 		A227173C1A19BEBE005B7C10 /* ICEDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A22719411A19CCF5005B7C10 /* MLPjnath.c */,
+				A22719421A19CCF5005B7C10 /* MLPjnath.h */,
 				A22717411A19BEBE005B7C10 /* AppDelegate.h */,
 				A22717421A19BEBE005B7C10 /* AppDelegate.m */,
 				A22717471A19BEBE005B7C10 /* ViewController.h */,
@@ -1050,6 +1055,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22719431A19CCF5005B7C10 /* MLPjnath.c in Sources */,
 				A22717431A19BEBE005B7C10 /* AppDelegate.m in Sources */,
 				A22717401A19BEBE005B7C10 /* main.m in Sources */,
 				A22717491A19BEBE005B7C10 /* ViewController.m in Sources */,
