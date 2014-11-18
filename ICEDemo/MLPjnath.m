@@ -25,9 +25,17 @@
 
 - (pj_status_t)icedemoInit
 {
+  icedemo.opt.comp_cnt = 1;
+  icedemo.opt.max_host = -1;
+
   pj_status_t status = icedemo_init();
 
   return status;
+}
+
+- (void)createInstance
+{
+  icedemo_create_instance();
 }
 
 #pragma mark - Migrate from icedemo.c of PJSIP

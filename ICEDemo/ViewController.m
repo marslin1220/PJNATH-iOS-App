@@ -21,6 +21,7 @@
   [super viewDidLoad];
 
   self.mlPjnath = [[MLPjnath alloc] init];
+  [self.mlPjnath createInstance];
 }
 
 - (void)didReceiveMemoryWarning {

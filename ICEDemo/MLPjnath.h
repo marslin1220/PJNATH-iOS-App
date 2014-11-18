@@ -12,5 +12,6 @@
 @interface MLPjnath : NSObject
 
 - (pj_status_t)icedemoInit;
+- (void)createInstance;
 
 @end
