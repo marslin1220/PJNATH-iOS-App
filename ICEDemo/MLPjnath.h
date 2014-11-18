@@ -13,5 +13,6 @@
 
 - (pj_status_t)icedemoInit;
 - (void)createInstance;
+- (void)initSession:(unsigned)rolechar;
 
 @end

@@ -38,6 +38,11 @@
   icedemo_create_instance();
 }
 
+- (void)initSession:(unsigned)rolechar
+{
+  icedemo_init_session(rolechar);
+}
+
 #pragma mark - Migrate from icedemo.c of PJSIP
 
 #define THIS_FILE   "MLPjnath.m"
