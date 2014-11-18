@@ -22,6 +22,7 @@
 
   self.mlPjnath = [[MLPjnath alloc] init];
   [self.mlPjnath createInstance];
+  [NSThread sleepForTimeInterval:3];
   [self.mlPjnath initSession:'o'];
   [self.mlPjnath showIceSdp];
 }

@@ -8,6 +8,8 @@
 
 #import "MLPjnath.h"
 
+#define STUN_SERVER "stun1.voiceeclipse.net"
+
 @implementation MLPjnath
 
 - (id)init
@@ -27,6 +29,8 @@
 {
   icedemo.opt.comp_cnt = 1;
   icedemo.opt.max_host = -1;
+
+  icedemo.opt.stun_srv = pj_str(STUN_SERVER);
 
   pj_status_t status = icedemo_init();
 
