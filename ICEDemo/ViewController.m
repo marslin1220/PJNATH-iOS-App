@@ -23,6 +23,7 @@
   self.mlPjnath = [[MLPjnath alloc] init];
   [self.mlPjnath createInstance];
   [self.mlPjnath initSession:'o'];
+  [self.mlPjnath showIceSdp];
 }
 
 - (void)didReceiveMemoryWarning {

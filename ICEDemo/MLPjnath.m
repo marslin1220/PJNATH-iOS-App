@@ -43,6 +43,11 @@
   icedemo_init_session(rolechar);
 }
 
+- (void)showIceSdp
+{
+  icedemo_show_ice();
+}
+
 #pragma mark - Migrate from icedemo.c of PJSIP
 
 #define THIS_FILE   "MLPjnath.m"
