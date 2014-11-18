@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "MLPjnath.h"
 
 @interface ViewController ()
+
+@property MLPjnath *mlPjnath;
 
 @end
 
@@ -16,7 +19,8 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view, typically from a nib.
+
+  self.mlPjnath = [[MLPjnath alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
