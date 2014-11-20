@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MLPjnath.h"
+#import "SendDataViewController.h"
 
 @interface ViewController ()
 
@@ -48,6 +49,11 @@
 - (IBAction)startIceNegotiate:(UIButton *)sender {
   [self.mlPjnath startIceNegotiate];
   [self.iceNegotiateBtn setHidden:true];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  SendDataViewController *sendDataVC = (SendDataViewController *)segue.destinationViewController;
+  sendDataVC.mlPjnath = self.mlPjnath;
 }
 
 @end

@@ -17,5 +17,6 @@
 - (void)showIceSdp;
 - (void)setRemoteSdp:(NSString *)remoteSdp;
 - (void)startIceNegotiate;
+- (void)sendComponentWithData:(NSString *)data;
 
 @end

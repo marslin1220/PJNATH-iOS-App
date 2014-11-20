@@ -55,6 +55,7 @@ a=candidate:Hc0a80103 1 UDP 1694498815 192.168.1.3 57934 typ host</string>
                                 </state>
                                 <connections>
                                     <action selector="startIceNegotiate:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ogT-lB-oeR"/>
+                                    <segue destination="RGm-Fx-nUT" kind="showDetail" id="bhA-k3-EIH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -68,6 +69,43 @@ a=candidate:Hc0a80103 1 UDP 1694498815 192.168.1.3 57934 typ host</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Send Data View Controller-->
+        <scene sceneID="KUo-ou-2DY">
+            <objects>
+                <viewController id="RGm-Fx-nUT" customClass="SendDataViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0EE-dM-AvJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="K4q-b4-PTZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nwL-G2-AXa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test data to send" borderStyle="roundedRect" placeholder="Input some data to send" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cx5-Dv-Wj4">
+                                <rect key="frame" x="16" y="28" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMV-7z-Bue">
+                                <rect key="frame" x="268" y="66" width="36" height="30"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendData:" destination="RGm-Fx-nUT" eventType="touchUpInside" id="guw-pc-sL7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="dataTextField" destination="Cx5-Dv-Wj4" id="rb6-bB-yne"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kb4-mS-oEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="375"/>
         </scene>
     </scenes>
 </document>

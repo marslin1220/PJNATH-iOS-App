@@ -72,6 +72,12 @@
   icedemo_start_nego();
 }
 
+- (void)sendComponentWithData:(NSString *)data
+{
+  const char *cData = [data cStringUsingEncoding:NSUTF8StringEncoding];
+  icedemo_send_data(1, cData);
+}
+
 #pragma mark - Migrate from icedemo.c of PJSIP
 
 #define THIS_FILE   "MLPjnath.m"
