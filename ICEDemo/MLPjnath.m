@@ -52,6 +52,21 @@
   icedemo_show_ice();
 }
 
+- (void)setRemoteSdp:(NSString *)remoteSdp
+{
+  NSArray *remoteSdpLines = [remoteSdp componentsSeparatedByString:@"\n"];
+
+  int count = [remoteSdpLines count];
+  char sdpBuf[count][80];
+  for(int i = 0; i < count; i++) {
+    NSString *s = [remoteSdpLines objectAtIndex:i];//get a NSString
+    const char *cstr = [s cStringUsingEncoding:NSUTF8StringEncoding];//get cstring
+    strcpy(sdpBuf[i], cstr);
+  }
+
+  icedemo_input_remote(sdpBuf, count);
+}
+
 #pragma mark - Migrate from icedemo.c of PJSIP
 
 #define THIS_FILE   "MLPjnath.m"
@@ -738,13 +753,11 @@ static void icedemo_show_ice(void)
  * Input and parse SDP from the remote (containing remote's ICE information)
  * and save it to global variables.
  */
-static void icedemo_input_remote(void)
+static void icedemo_input_remote(char sdpBuf[][80], int sdpBufSize)
 {
-  char linebuf[80];
   unsigned media_cnt = 0;
   unsigned comp0_port = 0;
   char     comp0_addr[80];
-  pj_bool_t done = PJ_FALSE;
 
   puts("Paste SDP from remote host, end with empty line");
 
@@ -752,21 +765,21 @@ static void icedemo_input_remote(void)
 
   comp0_addr[0] = '\0';
 
-  while (!done) {
+  for (int sdpLineIndex = 0; sdpLineIndex <  sdpBufSize; sdpLineIndex++) {
     pj_size_t len;
     char *line;
 
     printf(">");
     if (stdout) fflush(stdout);
 
-    if (fgets(linebuf, sizeof(linebuf), stdin)==NULL)
+    if (!sdpBuf[sdpLineIndex])
       break;
 
-    len = strlen(linebuf);
-    while (len && (linebuf[len-1] == '\r' || linebuf[len-1] == '\n'))
-      linebuf[--len] = '\0';
+    len = strlen(sdpBuf[sdpLineIndex]);
+    while (len && (sdpBuf[sdpLineIndex][len-1] == '\r' || sdpBuf[sdpLineIndex][len-1] == '\n'))
+      sdpBuf[sdpLineIndex][--len] = '\0';
 
-    line = linebuf;
+    line = sdpBuf[sdpLineIndex];
     while (len && pj_isspace(*line))
       ++line, --len;
 

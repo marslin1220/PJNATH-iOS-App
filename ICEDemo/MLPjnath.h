@@ -15,5 +15,6 @@
 - (void)createInstance;
 - (void)initSession:(unsigned)rolechar;
 - (void)showIceSdp;
+- (void)setRemoteSdp:(NSString *)remoteSdp;
 
 @end

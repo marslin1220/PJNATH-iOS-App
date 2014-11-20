@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextView *sdpTextView;
+
 @property MLPjnath *mlPjnath;
 
 @end
@@ -30,6 +32,10 @@
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)sdpSubmit:(UIButton *)sender {
+  [self.mlPjnath setRemoteSdp:self.sdpTextView.text];
 }
 
 @end
