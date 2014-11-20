@@ -16,5 +16,6 @@
 - (void)initSession:(unsigned)rolechar;
 - (void)showIceSdp;
 - (void)setRemoteSdp:(NSString *)remoteSdp;
+- (void)startIceNegotiate;
 
 @end

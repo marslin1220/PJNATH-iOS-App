@@ -67,6 +67,11 @@
   icedemo_input_remote(sdpBuf, count);
 }
 
+- (void)startIceNegotiate
+{
+  icedemo_start_nego();
+}
+
 #pragma mark - Migrate from icedemo.c of PJSIP
 
 #define THIS_FILE   "MLPjnath.m"

@@ -12,6 +12,7 @@
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *sdpTextView;
+@property (weak, nonatomic) IBOutlet UIButton *iceNegotiateBtn;
 
 @property MLPjnath *mlPjnath;
 
@@ -36,6 +37,17 @@
 
 - (IBAction)sdpSubmit:(UIButton *)sender {
   [self.mlPjnath setRemoteSdp:self.sdpTextView.text];
+  [self.mlPjnath showIceSdp];
+
+  [sender setHidden:true];
+  [self.iceNegotiateBtn setHidden:false];
+  [self.sdpTextView setEditable:false];
+  [self.iceNegotiateBtn setEnabled:true];
+}
+
+- (IBAction)startIceNegotiate:(UIButton *)sender {
+  [self.mlPjnath startIceNegotiate];
+  [self.iceNegotiateBtn setHidden:true];
 }
 
 @end
