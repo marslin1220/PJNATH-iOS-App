@@ -56,7 +56,7 @@
 {
   NSArray *remoteSdpLines = [remoteSdp componentsSeparatedByString:@"\n"];
 
-  int count = [remoteSdpLines count];
+  int count = (int)[remoteSdpLines count];
   char sdpBuf[count][80];
   for(int i = 0; i < count; i++) {
     NSString *s = [remoteSdpLines objectAtIndex:i];//get a NSString
@@ -76,6 +76,22 @@
 {
   const char *cData = [data cStringUsingEncoding:NSUTF8StringEncoding];
   icedemo_send_data(1, cData);
+}
+
+- (void)getIcePairInfo
+{
+  if (!pj_ice_strans_sess_is_complete(icedemo.icest)) {
+    [NSThread sleepForTimeInterval:0.5];
+  }
+
+  char ipstr[PJ_INET6_ADDRSTRLEN+10];
+  char ipstr2[PJ_INET6_ADDRSTRLEN+10];
+
+  const pj_ice_sess_check *validPair = pj_ice_strans_get_valid_pair(icedemo.icest, 1);
+  //void* pj_sockaddr_get_addr(const pj_sockaddr_t *addr)
+  //pj_uint16_t pj_sockaddr_get_port(const pj_sockaddr_t *addr)
+  NSLog(@"valid pair remote: %s", pj_sockaddr_print(&(validPair->rcand)->addr , ipstr, sizeof(ipstr), 3));
+  NSLog(@"valid pair local: %s", pj_sockaddr_print(&(validPair->lcand)->addr , ipstr2, sizeof(ipstr2), 3));
 }
 
 #pragma mark - Migrate from icedemo.c of PJSIP
