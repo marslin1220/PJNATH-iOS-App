@@ -78,20 +78,37 @@
   icedemo_send_data(1, cData);
 }
 
-- (void)getIcePairInfo
+- (NSString *)validRemoteCandidateSocket
 {
-  if (!pj_ice_strans_sess_is_complete(icedemo.icest)) {
+  char ipstr[PJ_INET6_ADDRSTRLEN+10];
+
+  const pj_ice_sess_check *validPair = [self validCandatePair];
+
+  pj_sockaddr_print(&(validPair->rcand)->addr , ipstr, sizeof(ipstr), 3);
+  NSString *remoteCandidate = [NSString stringWithCString:ipstr encoding:NSASCIIStringEncoding];
+
+  return remoteCandidate;
+}
+
+- (NSString *)validLocalCandidateSocket
+{
+  char ipstr[PJ_INET6_ADDRSTRLEN+10];
+
+  const pj_ice_sess_check *validPair = [self validCandatePair];
+
+  pj_sockaddr_print(&(validPair->lcand)->addr , ipstr, sizeof(ipstr), 3);
+  NSString *remoteCandidate = [NSString stringWithCString:ipstr encoding:NSASCIIStringEncoding];
+
+  return remoteCandidate;
+}
+
+- (const pj_ice_sess_check *)validCandatePair
+{
+  while (!pj_ice_strans_sess_is_complete(icedemo.icest)) {
     [NSThread sleepForTimeInterval:0.5];
   }
 
-  char ipstr[PJ_INET6_ADDRSTRLEN+10];
-  char ipstr2[PJ_INET6_ADDRSTRLEN+10];
-
-  const pj_ice_sess_check *validPair = pj_ice_strans_get_valid_pair(icedemo.icest, 1);
-  //void* pj_sockaddr_get_addr(const pj_sockaddr_t *addr)
-  //pj_uint16_t pj_sockaddr_get_port(const pj_sockaddr_t *addr)
-  NSLog(@"valid pair remote: %s", pj_sockaddr_print(&(validPair->rcand)->addr , ipstr, sizeof(ipstr), 3));
-  NSLog(@"valid pair local: %s", pj_sockaddr_print(&(validPair->lcand)->addr , ipstr2, sizeof(ipstr2), 3));
+  return pj_ice_strans_get_valid_pair(icedemo.icest, 1);
 }
 
 #pragma mark - Migrate from icedemo.c of PJSIP
