@@ -59,8 +59,8 @@
   int count = (int)[remoteSdpLines count];
   char sdpBuf[count][80];
   for(int i = 0; i < count; i++) {
-    NSString *s = [remoteSdpLines objectAtIndex:i];//get a NSString
-    const char *cstr = [s cStringUsingEncoding:NSUTF8StringEncoding];//get cstring
+    NSString *s = [remoteSdpLines objectAtIndex:i];
+    const char *cstr = [s cStringUsingEncoding:NSUTF8StringEncoding];
     strcpy(sdpBuf[i], cstr);
   }
 
