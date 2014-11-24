@@ -39,6 +39,8 @@
 		A227193D1A19C5E1005B7C10 /* libspeex-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22719241A19C5E0005B7C10 /* libspeex-arm-apple-darwin9.a */; };
 		A227193E1A19C5E1005B7C10 /* libsrtp-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A22719251A19C5E0005B7C10 /* libsrtp-arm-apple-darwin9.a */; };
 		A227193F1A19C5E1005B7C10 /* libpjproject.pc in Resources */ = {isa = PBXBuildFile; fileRef = A22719271A19C5E0005B7C10 /* libpjproject.pc */; };
+		A22719471A1AAB49005B7C10 /* MLPjnath.m in Sources */ = {isa = PBXBuildFile; fileRef = A22719461A1AAB49005B7C10 /* MLPjnath.m */; };
+		A227194A1A1DC93E005B7C10 /* SendDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22719491A1DC93E005B7C10 /* SendDataViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,6 +386,10 @@
 		A22719241A19C5E0005B7C10 /* libspeex-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libspeex-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		A22719251A19C5E0005B7C10 /* libsrtp-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libsrtp-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		A22719271A19C5E0005B7C10 /* libpjproject.pc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libpjproject.pc; sourceTree = "<group>"; };
+		A22719451A1AAB49005B7C10 /* MLPjnath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPjnath.h; sourceTree = "<group>"; };
+		A22719461A1AAB49005B7C10 /* MLPjnath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPjnath.m; sourceTree = "<group>"; };
+		A22719481A1DC93E005B7C10 /* SendDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendDataViewController.h; sourceTree = "<group>"; };
+		A22719491A1DC93E005B7C10 /* SendDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendDataViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,10 +450,14 @@
 		A227173C1A19BEBE005B7C10 /* ICEDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A22719451A1AAB49005B7C10 /* MLPjnath.h */,
+				A22719461A1AAB49005B7C10 /* MLPjnath.m */,
 				A22717411A19BEBE005B7C10 /* AppDelegate.h */,
 				A22717421A19BEBE005B7C10 /* AppDelegate.m */,
 				A22717471A19BEBE005B7C10 /* ViewController.h */,
 				A22717481A19BEBE005B7C10 /* ViewController.m */,
+				A22719481A1DC93E005B7C10 /* SendDataViewController.h */,
+				A22719491A1DC93E005B7C10 /* SendDataViewController.m */,
 				A227174A1A19BEBE005B7C10 /* Main.storyboard */,
 				A227174D1A19BEBE005B7C10 /* Images.xcassets */,
 				A227174F1A19BEBE005B7C10 /* LaunchScreen.xib */,
@@ -1050,7 +1060,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22719471A1AAB49005B7C10 /* MLPjnath.m in Sources */,
 				A22717431A19BEBE005B7C10 /* AppDelegate.m in Sources */,
+				A227194A1A1DC93E005B7C10 /* SendDataViewController.m in Sources */,
 				A22717401A19BEBE005B7C10 /* main.m in Sources */,
 				A22717491A19BEBE005B7C10 /* ViewController.m in Sources */,
 				A22717461A19BEBE005B7C10 /* ICEDemo.xcdatamodeld in Sources */,
@@ -1175,12 +1187,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"PJ_AUTOCONF=1",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/PJSIP-includes",
+					"$(SRCROOT)/PJSIP-includes/include",
 				);
 				INFOPLIST_FILE = ICEDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1194,12 +1212,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = "PJ_AUTOCONF=1";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/PJSIP-includes",
+					"$(SRCROOT)/PJSIP-includes/include",
 				);
 				INFOPLIST_FILE = ICEDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
